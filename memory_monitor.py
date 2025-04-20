@@ -31,9 +31,14 @@ DEFAULT_LOG_LEVEL = 'INFO'
 
 class SystemMonitor:
     def __init__(self, config_file=DEFAULT_CONFIG_FILE):
+
         self.config_file = config_file
-        self.config = self._load_config()
+        
         self._setup_logging()
+
+        self.config = self._load_config()
+        
+
         self.last_alert_times = {
             'ram': 0,
             'cpu': 0,
@@ -93,56 +98,56 @@ class SystemMonitor:
             # Prometheus integration settings
             'prometheus_enabled': False,
             'prometheus_port': 9090,
-                # Alert format settings
-                # 'alert_format_enabled': True,
-                # 'alert_format_top_border': "┌────────────────────────────────────────────┐",
-                # 'alert_format_title_border': "├────────────────────────────────────────────┤",
-                # 'alert_format_section_border': "├────────────────────────────────────────────┤",
-                # 'alert_format_bottom_border': "└────────────────────────────────────────────┘",
-                # 'alert_format_line_prefix': "│ ",
-                # 'alert_format_line_suffix': " │",
-                # 'alert_format_date_emoji': "🗓️",
-                # 'alert_format_ram_emoji': "🧠",
-                # 'alert_format_cpu_emoji': "🔥",
-                # 'alert_format_disk_emoji': "💾",
-                # 'alert_format_top_processes_emoji': "🧾",
-                # 'alert_format_disk_breakdown_emoji': "📁",
-                # 'alert_format_hostname_emoji': "",
-                # 'alert_format_ip_emoji': "",
-                # 'alert_format_uptime_emoji': "",
-                # 'alert_format_os_emoji': "",
-                # 'alert_format_kernel_emoji': "",
-                # 'alert_format_use_box_drawing': True,
-                # 'alert_format_width': 44,
-                # 'alert_format_title_align': "center",  # left, center, right
-                # 'alert_format_include_system_info': True,
-                # 'alert_format_include_resources': True,
-                # 'alert_format_include_top_processes': True,
-                # 'alert_format_include_disk_breakdown': True
-                
-                'alert_format_enabled': True,
-                'alert_format_use_box_drawing': False,  # ❗ oddiy text uslubi
-                'alert_format_title_align': "left",     # chapdan joylashsin
-                'alert_format_width': 0,                # kenglikka cheklov yo‘q
+            # Alert format settings
+            # 'alert_format_enabled': True,
+            # 'alert_format_top_border': "┌────────────────────────────────────────────┐",
+            # 'alert_format_title_border': "├────────────────────────────────────────────┤",
+            # 'alert_format_section_border': "├────────────────────────────────────────────┤",
+            # 'alert_format_bottom_border': "└────────────────────────────────────────────┘",
+            # 'alert_format_line_prefix': "│ ",
+            # 'alert_format_line_suffix': " │",
+            # 'alert_format_date_emoji': "🗓️",
+            # 'alert_format_ram_emoji': "🧠",
+            # 'alert_format_cpu_emoji': "🔥",
+            # 'alert_format_disk_emoji': "💾",
+            # 'alert_format_top_processes_emoji': "🧾",
+            # 'alert_format_disk_breakdown_emoji': "📁",
+            # 'alert_format_hostname_emoji': "",
+            # 'alert_format_ip_emoji': "",
+            # 'alert_format_uptime_emoji': "",
+            # 'alert_format_os_emoji': "",
+            # 'alert_format_kernel_emoji': "",
+            # 'alert_format_use_box_drawing': True,
+            # 'alert_format_width': 44,
+            # 'alert_format_title_align': "center",  # left, center, right
+            # 'alert_format_include_system_info': True,
+            # 'alert_format_include_resources': True,
+            # 'alert_format_include_top_processes': True,
+            # 'alert_format_include_disk_breakdown': True
+            
+            'alert_format_enabled': True,
+            'alert_format_use_box_drawing': False,  # ❗ oddiy text uslubi
+            'alert_format_title_align': "left",     # chapdan joylashsin
+            'alert_format_width': 0,                # kenglikka cheklov yo‘q
 
-                # Emojilar
-                'alert_format_date_emoji': "📅",
-                'alert_format_ram_emoji': "💥",   # yoki 🧠
-                'alert_format_cpu_emoji': "💥",   # yoki 🔥
-                'alert_format_disk_emoji': "💥",  # yoki 💾
-                'alert_format_top_processes_emoji': "🔍",
-                'alert_format_disk_breakdown_emoji': "🔍",  # yoki 📁
-                'alert_format_hostname_emoji': "🖥️",
-                'alert_format_ip_emoji': "🌐",
-                'alert_format_uptime_emoji': "",
-                'alert_format_os_emoji': "",
-                'alert_format_kernel_emoji': "",
+            # Emojilar
+            'alert_format_date_emoji': "📅",
+            'alert_format_ram_emoji': "💥",   # yoki 🧠
+            'alert_format_cpu_emoji': "💥",   # yoki 🔥
+            'alert_format_disk_emoji': "💥",  # yoki 💾
+            'alert_format_top_processes_emoji': "🔍",
+            'alert_format_disk_breakdown_emoji': "🔍",  # yoki 📁
+            'alert_format_hostname_emoji': "🖥️",
+            'alert_format_ip_emoji': "🌐",
+            'alert_format_uptime_emoji': "",
+            'alert_format_os_emoji': "",
+            'alert_format_kernel_emoji': "",
 
-                # Tizim qismlarini ko‘rsatish
-                'alert_format_include_system_info': True,
-                'alert_format_include_resources': True,
-                'alert_format_include_top_processes': True,
-                'alert_format_include_disk_breakdown': True,
+            # Tizim qismlarini ko‘rsatish
+            'alert_format_include_system_info': True,
+            'alert_format_include_resources': True,
+            'alert_format_include_top_processes': True,
+            'alert_format_include_disk_breakdown': True,
 
         }
 
